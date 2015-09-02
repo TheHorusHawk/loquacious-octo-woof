@@ -100,3 +100,5 @@ Buy phase:
 	You may choose to:
 		Subtract the price of a food or horse in the region you're in and add a food or horse to inventory.
 	You may do this as many times as you wish.
+
+*Anno Unix. Calendar started January 1st 1970 CE. 1970 CE is year 0 AU. The last digit on both cleandars is always the same. 1992 becomes 22, 2002 becomes 32, etc..
