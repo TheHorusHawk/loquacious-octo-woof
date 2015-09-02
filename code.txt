@@ -1,0 +1,97 @@
+This code should run in any computing aggregate or aggregates running English Language, human-style shape recognition (and many associated conventions as of 44 AU*).
+
+Many terms will be referenced before definition. 
+
+This code requires you to stack information. It now exists forever.
+
+You're a travelling circus. You have only one horse. 
+
+End conditions:
+If you have three horses and have had a show in all the territories of Scotland, the game ends in a victory.
+If time runs out, game ends in a defeat.
+If the circus disbands, game ends in a defeat.
+If you stop playing to go get coffee, game mantains state.
+If you tear paper, game remains. Game is eternal, meat hardware running the game must renew itself through birth and death. 
+
+Computing 
+
+Initialization of variables:
+
+Days elapsed = 0
+Time limit = 90
+Money = 50
+Horses = 1
+Carrying capacity of a horse = 3 Food
+Inventory = 4 Food
+Map and prices = 
+
+Do:
+	One of the following three things:
+		Move to neighbouring land
+		Put on show
+		Forage for food
+	Buy food or horses
+	Consume food
+	Add one to Days elapsed
+
+Permanent loops:
+	If Days elapsed reaches time limit:
+		Game Over
+	Inventory limit is Carrying capacity of a horse times ammount of horses
+	If Number of Food is more than Inventory limit:
+		Number of Food becomes Inventory limit
+
+Consume food:
+	If there's food on the inventory:
+		remove one food unit from the inventory.
+	If not:
+		add one to Days Starved, roll die
+		If number generated is less than or equal to Days Starved:
+			Game over
+
+Forage for food:
+	State of Show Token becomes Not Had Show
+	Roll die twice
+	If first number generated is equal to second number generated:
+		Add one food to inventory.
+	If first number plus second number is equal to or greater than 7:
+		Add one food to inventory
+
+Roll die:
+	Generate random number from the set (1,2,3,4,5,6)
+
+Flip Show token:
+	If state is Had Show
+		State becomes Not Had Show
+	If state is Not Had Show
+		State becomes Had Show
+
+Put on show:
+	Roll die twice
+	Check state of Show Token:
+		If Not Had Show:
+			If first number generated plus second number generated is greater than or equal to Territory Caracteristic:
+				Check Payoff table. Add number on High Payoff column to Money
+			If first number generated plus second number generated is less than Territory Caracteristic:
+				Check Payoff table. Add number on Low Payoff column to Money
+		If Had Show:
+			Like above, except add half the number to instead of full number to Money (rounded down)
+	State of Show Token becomes Had Show
+	If Game difficulty is Hard:
+		Subtract 25 from Money
+	
+
+Move to neighbouring land:
+	State of Show Token becomes Not Had Show
+	Change your location to Territory neighbouring the territory you are at.
+	Check terrain of territory you are moving into on the movement table :
+		If you have three horses or more:
+			Use number indicated at "by foot"
+		If you have less than three horses:
+			Use number indicated at "by horse"
+	Consume food "days passed" times.
+
+Buy phase:
+	You may choose to:
+		Subtract the price of a food or horse in the region you're in and add a food or horse to inventory.
+	You may do this as many times as you wish.
