@@ -2,7 +2,9 @@ This code should run in any computing aggregate or aggregates running English La
 
 Many terms will be referenced before definition. 
 
-This code requires you to stack information. It now exists forever.
+This code requires you to stack information. It refers to terms like "choice" which assume Will. This is deliberate.
+
+The game now exists forever.
 
 You're a travelling circus. You have only one horse. 
 
@@ -13,8 +15,6 @@ If the circus disbands, game ends in a defeat.
 If you stop playing to go get coffee, game mantains state.
 If you tear paper, game remains. Game is eternal, meat hardware running the game must renew itself through birth and death. 
 
-Computing 
-
 Initialization of variables:
 
 Days elapsed = 0
@@ -23,7 +23,8 @@ Money = 50
 Horses = 1
 Carrying capacity of a horse = 3 Food
 Inventory = 4 Food
-Map and prices = 
+Map and prices = map and prices file
+Territories where show's been had =  []
 
 Do:
 	One of the following three things:
@@ -40,6 +41,8 @@ Permanent loops:
 	Inventory limit is Carrying capacity of a horse times ammount of horses
 	If Number of Food is more than Inventory limit:
 		Number of Food becomes Inventory limit
+	If number of horses equals three and show's been had in all territories of Scotland:
+		Victory
 
 Consume food:
 	If there's food on the inventory:
@@ -77,6 +80,8 @@ Put on show:
 		If Had Show:
 			Like above, except add half the number to instead of full number to Money (rounded down)
 	State of Show Token becomes Had Show
+	If territory is not on Territories where show's been had:
+		Add territory to Territories where show's been had
 	If Game difficulty is Hard:
 		Subtract 25 from Money
 	
